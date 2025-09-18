@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obai Sukar | Creator, Engineer, Entrepreneur</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        @font-face {
+            font-family: 'Roboto Local';
+            src: url('./Fonts/Font/Roboto-Regular.ttf') format('truetype');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'Roboto Local';
+            src: url('./Fonts/Font/Roboto-Medium.ttf') format('truetype');
+            font-weight: 500;
+        }
+        @font-face {
+            font-family: 'Roboto Local';
+            src: url('./Fonts/Font/Roboto-Light.ttf') format('truetype');
+            font-weight: 300;
+        }
+        @font-face {
+            font-family: 'Roboto Local';
+            src: url('./Fonts/Font/Roboto-Black.ttf') format('truetype');
+            font-weight: 900;
+        }
+    </style>
+    
+    <style>
+        /* Brand Colors */
+        :root {
+            --deep-navy: #292663;
+            --blue: #00AEEF;
+            --pink: #EC008C;
+            --orange: #FBB04C;
+            --purple: #92278F;
+            --text-light: #FFFFFF;
+            --text-gray: #B0B0B0;
+            --gradient: var(--blue);
+            --gradient-border: var(--blue);
+        }
+
+        /* Global Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        
+        body {
+            background: var(--deep-navy) url('./Assets/Home/BG/Web/Obai-website_BG_1.png') center/cover no-repeat fixed;
+            font-family: 'Roboto Local', 'Roboto', sans-serif;
+            color: var(--text-light);
+            font-weight: 400;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(236, 0, 140, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(0, 174, 239, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(251, 176, 76, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            animation: backgroundShift 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            25% { transform: translateX(-20px) translateY(-10px); }
+            50% { transform: translateX(20px) translateY(20px); }
+            75% { transform: translateX(-10px) translateY(10px); }
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+        
+        h1 { font-size: 3.5rem; font-weight: 900; }
+        h2 { font-size: 2.5rem; font-weight: 700; }
+        h3 { font-size: 1.75rem; font-weight: 600; }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        /* Navigation */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 0;
+            z-index: 1000;
+            background: rgba(26, 21, 82, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-section img {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+        
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            text-decoration: none;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: rgba(236, 0, 140, 0.2);
+            color: var(--pink);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .hamburger .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--text-light);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .waveform-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .waveform-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .wave-line {
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            overflow: hidden;
+        }
+
+        .wave-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            animation: waveMove 3s linear infinite;
+        }
+
+        .wave-line:nth-child(1) { animation-delay: 0s; }
+        .wave-line:nth-child(2) { animation-delay: 0.5s; top: 45%; }
+        .wave-line:nth-child(3) { animation-delay: 1s; top: 55%; }
+
+        @keyframes waveMove {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .waveform-visual {
+            position: absolute;
+            width: 80%;
+            height: 150px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .frequency-bar {
+            position: absolute;
+            bottom: 50%;
+            width: 3px;
+            background: var(--gradient);
+            border-radius: 1.5px;
+            animation: frequencyPulse 1.5s ease-in-out infinite;
+            transform-origin: bottom;
+        }
+
+        @keyframes frequencyPulse {
+            0%, 100% { transform: scaleY(0.2); opacity: 0.7; }
+            50% { transform: scaleY(1.2); opacity: 1; }
+        }
+
+        .waveform-svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+
+        .wave-path {
+            fill: none;
+            stroke: url(#waveGradient);
+            stroke-width: 3;
+            opacity: 0.8;
+            animation: wavePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes wavePulse {
+            0%, 100% { opacity: 0.6; stroke-width: 2; }
+            50% { opacity: 1; stroke-width: 4; }
+        }
+
+        .hero-logo {
+            position: relative;
+            z-index: 10;
+            width: 300px;
+            height: auto;
+            filter: drop-shadow(0 0 30px rgba(236, 0, 140, 0.6)) drop-shadow(0 0 60px rgba(0, 174, 239, 0.4));
+            animation: logoGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes logoGlow {
+            0%, 100% { 
+                filter: drop-shadow(0 0 30px rgba(236, 0, 140, 0.6)) drop-shadow(0 0 60px rgba(0, 174, 239, 0.4));
+                transform: scale(1);
+            }
+            50% { 
+                filter: drop-shadow(0 0 50px rgba(236, 0, 140, 0.8)) drop-shadow(0 0 80px rgba(0, 174, 239, 0.6));
+                transform: scale(1.03);
+            }
+        }
+
+        .hero-tagline {
+            font-size: 2.5rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            margin-top: 2rem;
+            max-width: 800px;
+            line-height: 1.2;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* About Section */
+        #about {
+            background: #000000;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 6rem;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about-profile {
+            position: relative;
+        }
+
+        .profile-image {
+            width: 350px;
+            height: 450px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 23px;
+            background: linear-gradient(135deg, var(--blue), var(--pink));
+            z-index: -1;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 17px;
+        }
+
+        .about-title {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .about-title .main-title {
+            display: block;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-content h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+
+        .about-content h2 .line1 { display: block; color: var(--text-light); }
+        .about-content h2 .line2 { display: block; color: var(--text-light); }
+        .about-content h2 .line3 { display: block; color: var(--text-light); }
+
+        .services-overview {
+            margin-top: 3rem;
+        }
+
+        .services-overview h3 {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .service-card.sound { 
+            grid-column: 1; 
+            border-color: var(--blue);
+        }
+        .service-card.tech { 
+            grid-column: 2; 
+            border-color: var(--orange);
+        }
+        .service-card.creative { 
+            grid-column: 1 / -1; 
+            border-color: var(--pink);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .service-card.sound .service-icon {
+            background: var(--blue);
+        }
+        .service-card.tech .service-icon {
+            background: var(--orange);
+        }
+        .service-card.creative .service-icon {
+            background: var(--pink);
+        }
+
+        .service-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Additional Sections - Services, Ventures, Media */
+        #services, #ventures, #media {
+            background: #000000;
+        }
+
+        .service-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .detail-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Portfolio Section */
+        #portfolio {
+            background: #000000;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            color: var(--text-light);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 300px);
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .portfolio-item {
+            border: 2px solid var(--blue);
+        }
+
+        .portfolio-item:nth-child(2) {
+            border-color: var(--pink);
+        }
+
+        .portfolio-item:nth-child(3) {
+            border-color: var(--orange);
+        }
+
+        .portfolio-item:nth-child(4) {
+            border-color: var(--purple);
+        }
+
+        .portfolio-item:nth-child(5) {
+            border-color: var(--blue);
+        }
+
+        .portfolio-item:nth-child(6) {
+            border-color: var(--orange);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .portfolio-item.large {
+            grid-row: span 2;
+        }
+
+        .portfolio-item h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .portfolio-item p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .portfolio-item .category {
+            font-size: 0.8rem;
+            color: var(--orange);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(236, 0, 140, 0.9);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .play-button:hover {
+            background: rgba(236, 0, 140, 1);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .award-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            background: var(--orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: #000000;
+            text-align: center;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: var(--text-light);
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--pink);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 20px rgba(236, 0, 140, 0.3);
+        }
+
+        .gradient-button {
+            background: var(--pink);
+            border: none;
+            border-radius: 50px;
+            padding: 1rem 3rem;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 25px rgba(236, 0, 140, 0.3);
+        }
+
+        .gradient-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(236, 0, 140, 0.5);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .portfolio-item.large {
+                grid-row: span 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 80px;
+                background: rgba(26, 21, 82, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                width: 100%;
+                height: calc(100vh - 80px);
+                align-items: center;
+                padding-top: 3rem;
+                transition: 0.3s;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .hero-logo {
+                width: 200px;
+            }
+
+            .hero-tagline {
+                font-size: 1.8rem;
+            }
+
+            .profile-image {
+                width: 280px;
+                height: 350px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card.creative {
+                grid-column: 1;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo-section">
+                <img src="./Assets/Home/Logo White/Logo_White.png" alt="OS Logo">
+                <span class="logo-text">Obai Sukar</span>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#hero" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#ventures">Ventures</a></li>
+                    <li><a href="#media">Media</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="waveform-container">
+                <div class="waveform-bg">
+                    <div class="wave-line"></div>
+                    <div class="wave-line"></div>
+                    <div class="wave-line"></div>
+                </div>
+                <div class="waveform-visual"></div>
+                <svg class="waveform-svg" viewBox="0 0 800 200">
+                    <defs>
+                        <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#00AEEF"/>
+                            <stop offset="50%" style="stop-color:#EC008C"/>
+                            <stop offset="100%" style="stop-color:#FBB04C"/>
+                        </linearGradient>
+                    </defs>
+                    <path class="wave-path" d="M0,100 Q100,50 200,100 T400,100 T600,100 T800,100" />
+                    <path class="wave-path" d="M0,120 Q100,80 200,120 T400,120 T600,120 T800,120" style="animation-delay: 0.5s"/>
+                    <path class="wave-path" d="M0,80 Q100,30 200,80 T400,80 T600,80 T800,80" style="animation-delay: 1s"/>
+                </svg>
+                <img class="hero-logo" src="./Assets/Home/Logo White/Logo_White.png" alt="Obai Sukar Logo">
+            </div>
+            <h1 class="hero-tagline">
+                Invest in the best thing<br>
+                ever, brilliant people.
+            </h1>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h1 class="about-title">
+                    <span class="main-title">About | Sukar</span>
+                </h1>
+                <div class="about-container">
+                    <div class="about-profile">
+                        <div class="profile-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=350&h=450&fit=crop&crop=face" alt="Obai Sukar Profile">
+                        </div>
+                    </div>
+                    <div class="about-content">
+                        <h2>
+                            <span class="line1">Creator.</span>
+                            <span class="line2">Engineer.</span>
+                            <span class="line3">Entrepreneur.</span>
+                        </h2>
+                        <p>Lorem ipsum dolor sit amet consectetur elit. Sed aliquam vel ipsum eros consequatur ullam mollit et distinctio ut assumenda ea neque eius non</p>
+                        
+                        <div class="services-overview">
+                            <h3>Services Overview</h3>
+                            <div class="services-grid">
+                                <div class="service-card sound">
+                                    <div class="service-icon">🎵</div>
+                                    <h4>SOUND</h4>
+                                    <p>Lorem ipsum consectetur adipiscing elit. Sed aliquam vel tellus ullam consequatur mollit tempor</p>
+                                </div>
+                                <div class="service-card tech">
+                                    <div class="service-icon">⚙️</div>
+                                    <h4>TECH</h4>
+                                    <p>Lorem ipsum consectetur adipiscing elit. Sed aliquam vel tellus ullam consequatur mollit tempor</p>
+                                </div>
+                                <div class="service-card creative">
+                                    <div class="service-icon">🎨</div>
+                                    <h4>CREATIVE</h4>
+                                    <p>Lorem ipsum consectetur adipiscing elit. Sed aliquam vel tellus ullam consequatur mollit tempor</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <h1 class="about-title">
+                    <span class="main-title">Services | Expertise</span>
+                </h1>
+                <div class="about-container">
+                    <div class="about-profile">
+                        <div class="services-grid">
+                            <div class="service-card sound">
+                                <div class="service-icon">🎵</div>
+                                <h4>SOUND</h4>
+                                <p>Professional audio production, mixing, mastering and sound design for media</p>
+                            </div>
+                            <div class="service-card tech">
+                                <div class="service-icon">⚙️</div>
+                                <h4>TECH</h4>
+                                <p>Custom software development and system integration solutions</p>
+                            </div>
+                            <div class="service-card creative">
+                                <div class="service-icon">🎨</div>
+                                <h4>CREATIVE</h4>
+                                <p>Brand strategy and multimedia content creation services</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-content">
+                        <h2>
+                            <span class="line1">Professional.</span>
+                            <span class="line2">Reliable.</span>
+                            <span class="line3">Innovative.</span>
+                        </h2>
+                        <p>Delivering excellence across audio engineering, technology development, and creative services. Each project is approached with precision, creativity, and a commitment to exceeding client expectations.</p>
+                        
+                        <div class="services-overview">
+                            <h3>Service Areas</h3>
+                            <div class="service-details">
+                                <div class="detail-item">Sound Design & Post-Production</div>
+                                <div class="detail-item">Custom Software Development</div>
+                                <div class="detail-item">Creative Direction & Strategy</div>
+                                <div class="detail-item">System Integration & Automation</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ventures">
+            <div class="container">
+                <h1 class="about-title">
+                    <span class="main-title">Ventures | Innovation</span>
+                </h1>
+                <div class="about-container">
+                    <div class="about-profile">
+                        <div class="profile-image">
+                            <img src="./Assets/Logos/Logo (Horizontal).png" alt="Audio Blast Logo">
+                        </div>
+                    </div>
+                    <div class="about-content">
+                        <h2>
+                            <span class="line1">Entrepreneur.</span>
+                            <span class="line2">Innovator.</span>
+                            <span class="line3">Leader.</span>
+                        </h2>
+                        <p>Building ventures that bridge technology and creativity. From audio production companies to educational initiatives, each venture represents a commitment to innovation and excellence.</p>
+                        
+                        <div class="services-overview">
+                            <h3>Current Ventures</h3>
+                            <div class="services-grid">
+                                <div class="service-card sound">
+                                    <div class="service-icon">🎵</div>
+                                    <h4>AUDIO BLAST</h4>
+                                    <p>Professional audio and IT services company serving creative industries</p>
+                                </div>
+                                <div class="service-card tech">
+                                    <div class="service-icon">🚀</div>
+                                    <h4>TECH HUB</h4>
+                                    <p>Innovation incubator for creative technology startups and entrepreneurs</p>
+                                </div>
+                                <div class="service-card creative">
+                                    <div class="service-icon">📚</div>
+                                    <h4>EDUCATION</h4>
+                                    <p>Knowledge sharing initiatives for audio engineering professionals</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="media">
+            <div class="container">
+                <h1 class="about-title">
+                    <span class="main-title">Media | Recognition</span>
+                </h1>
+                <div class="about-container">
+                    <div class="about-profile">
+                        <div class="services-grid">
+                            <div class="service-card sound">
+                                <div class="service-icon">🏆</div>
+                                <h4>AWARDS</h4>
+                                <p>Student Academy Awards • Gulf Film Festival • Industry Excellence</p>
+                            </div>
+                            <div class="service-card tech">
+                                <div class="service-icon">📰</div>
+                                <h4>PRESS</h4>
+                                <p>Featured in leading publications for innovation and creative leadership</p>
+                            </div>
+                            <div class="service-card creative">
+                                <div class="service-icon">🎤</div>
+                                <h4>SPEAKING</h4>
+                                <p>Keynotes at conferences on audio technology and entrepreneurship</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-content">
+                        <h2>
+                            <span class="line1">Recognized.</span>
+                            <span class="line2">Featured.</span>
+                            <span class="line3">Celebrated.</span>
+                        </h2>
+                        <p>Media coverage and industry recognition for contributions to audio engineering, technology innovation, and creative entrepreneurship across multiple platforms and publications.</p>
+                        
+                        <div class="services-overview">
+                            <h3>Recent Highlights</h3>
+                            <div class="service-details">
+                                <div class="detail-item">Student Academy Award for Best Sound Design</div>
+                                <div class="detail-item">Featured in Tech Innovation Weekly</div>
+                                <div class="detail-item">Keynote at Audio Engineering Society</div>
+                                <div class="detail-item">Gulf Film Festival Excellence Award</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Portfolio & Projects</h2>
+                </div>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <div class="category">Music Album</div>
+                        <h3>Echoes of Syria</h3>
+                        <p>A powerful musical journey capturing the essence of Syrian heritage and contemporary experiences.</p>
+                        <button class="play-button">▶</button>
+                    </div>
+                    
+                    <div class="portfolio-item large">
+                        <div class="category">Generative Art</div>
+                        <h3>Digital Canvas</h3>
+                        <p>Interactive digital art installations that respond to sound and environmental inputs, creating immersive experiences.</p>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div class="category">Sound Design</div>
+                        <h3>Future Frequencies</h3>
+                        <p>Experimental soundscapes exploring the intersection of technology and organic audio.</p>
+                        <button class="play-button">▶</button>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div class="category">Development</div>
+                        <h3>Code & Create</h3>
+                        <p>Custom software solutions that empower creative professionals and streamline workflows.</p>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div class="category">Broadcasting</div>
+                        <h3>Radio Al-Kul</h3>
+                        <p>Revolutionary broadcasting platform connecting communities across the Middle East.</p>
+                        <button class="play-button">▶</button>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div class="category">Film</div>
+                        <h3>Student Academy Award Film</h3>
+                        <p>Award-winning short film showcasing innovative storytelling and technical excellence.</p>
+                        <div class="award-badge">🏆</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Let's Create Together</h2>
+                    <p>Ready to bring your vision to life? Let's discuss how we can collaborate.</p>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Project Type">
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="5" placeholder="Tell me about your project..." required></textarea>
+                    </div>
+                    <button type="submit" class="gradient-button">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Navigation
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            // Active Navigation
+            const sections = document.querySelectorAll('section');
+            const navItems = document.querySelectorAll('.nav-links a');
+            
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 200) {
+                        current = section.getAttribute('id');
+                    }
+                });
+            
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href') === '#' + current) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+
+            // Dynamic Frequency Bars
+            const waveformVisual = document.querySelector('.waveform-visual');
+            const numBars = 80;
+            
+            for (let i = 0; i < numBars; i++) {
+                const bar = document.createElement('div');
+                bar.className = 'frequency-bar';
+                bar.style.left = `${(i / numBars) * 100}%`;
+                bar.style.animationDelay = `${Math.random() * 3}s`;
+                
+                // Create varied heights for more realistic frequency pattern
+                let height;
+                if (i < numBars * 0.3 || i > numBars * 0.7) {
+                    height = Math.random() * 30 + 10; // Lower frequencies on sides
+                } else {
+                    height = Math.random() * 80 + 20; // Higher frequencies in center
+                }
+                bar.style.height = `${height}px`;
+                
+                waveformVisual.appendChild(bar);
+            }
+
+            // Portfolio item interactions
+            document.querySelectorAll('.portfolio-item').forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    const playButton = item.querySelector('.play-button');
+                    if (playButton) {
+                        playButton.style.opacity = '1';
+                    }
+                });
+                
+                item.addEventListener('mouseleave', () => {
+                    const playButton = item.querySelector('.play-button');
+                    if (playButton) {
+                        playButton.style.opacity = '0.8';
+                    }
+                });
+            });
+
+            // Contact form
+            const contactForm = document.querySelector('.contact-form');
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your message! I will get back to you soon.');
+                contactForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>
